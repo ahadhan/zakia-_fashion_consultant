@@ -1,11 +1,18 @@
-import React from 'react'
-import { Gallery } from "react-grid-gallery";
+import React, { useState } from 'react'
 
 const GallerySec = () => {
 
+  const [selectedUrl, setSelectedUrl] = useState("https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg");
+
+
+
+
+  const switchImage = (id) => {
+    setSelectedUrl(id)
+  }
 
   return (
-    <div className='m-16'>
+    <div id='gallery' className='gallery px-16 max-md:px-8 pt-24'>
       <div className="heading">
 
         <div
@@ -15,28 +22,27 @@ const GallerySec = () => {
         >
           <hr className='bg-textColor' />
           <br />
-          <h1 className='text-[2.8rem] sub-heading'>Fashion Gallery</h1>
-          <div className='w-[50%] h-[5px] bg-primaryColor'></div>  <br />
-          </div>
+          <h1 className='text-[2.2rem] sub-heading max-md:text-[1.8rem]' style={{ fontFamily: "Playwrite GB S" }}>Fashion Gallery</h1>
+          <div className='w-[15%] h-[5px] bg-primaryColor max-md:w-[35%]'></div>  <br />
+        </div>
       </div>
 
-
-      <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+      <div class="grid grid-cols-2 max-md:grid-cols-2 gap-4 hover:cursor-pointer">
         <div>
-          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="" />
+          <img class="h-auto w-full max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src={selectedUrl} alt="" />
         </div>
         <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
           <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="" />
+            <img id='img-1' class="h-auto max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out	" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="" />
           </div>
           <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="" />
+            <img id='img-2' class="h-auto max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="" />
           </div>
           <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="" />
+            <img id='img-3' class="h-auto max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="" />
           </div>
           <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="" />
+            <img id='img-4' class="h-auto max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -52,31 +58,30 @@ const GallerySec = () => {
       >
 
         <br />
-        <h1 className='text-[2.8rem] sub-heading'>Modeling Gallery</h1>
-        <div className='w-[50%] h-[5px] bg-primaryColor'></div>  <br />
+        <h1 className='text-[2.2rem] sub-heading max-md:text-[1.8rem]' style={{ fontFamily: "Playwrite GB S" }}>Modeling Gallery</h1>
+        <div className='w-[15%] h-[5px] bg-primaryColor max-md:w-[35%]'></div>  <br />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
-        <div>
-          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="" />
-        </div>
-        <div>
-          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt="" />
-        </div>
-      </div>
-      <br />
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
 
-        <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 max-md:grid-cols-2 gap-4">
+        <div>
+          <img class="h-auto w-full max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="" />
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-2 gap-4 hover:cursor-pointer">
           <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="" />
+            <img class="h-auto max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt="" />
           </div>
           <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt="" />
+            <img class="h-auto max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="" />
+          </div>
+          <div>
+            <img class="h-auto max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt="" />
           </div>
 
 
         </div>
       </div>
+
 
       <br />
       <br />
@@ -90,74 +95,30 @@ const GallerySec = () => {
       >
 
         <br />
-        <h1 className='text-[2.8rem] sub-heading'>Pageant Gallery</h1>
-        <div className='w-[50%] h-[5px] bg-primaryColor'></div>  <br />
+        <h1 className='text-[2.2rem] sub-heading max-md:text-[1.8rem]' style={{ fontFamily: "Playwrite GB S" }}>Pageant Gallery</h1>
+        <div className='w-[15%] h-[5px] bg-primaryColor max-md:w-[35% ]'></div>  <br />
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+      <div class="grid grid-cols-2 max-md:grid-cols-2 gap-4 hover:cursor-pointer">
         <div>
-          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="" />
+          <img class="h-auto w-full max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="" />
         </div>
         <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
           <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="" />
+            <img class="h-auto max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="" />
           </div>
           <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="" />
+            <img class="h-auto max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="" />
           </div>
           <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="" />
+            <img class="h-auto max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="" />
           </div>
           <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="" />
+            <img class="h-auto max-w-full rounded-lg hover:scale-105 duration-300 ease-in-out" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="" />
           </div>
         </div>
       </div>
 
-
-
-
-
-
-
-
-      {/* <div className="carousel carousel-center bg-neutral rounded-box max-w-md space-x-4 p-4">
-  <div className="carousel-item">
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
-      className="rounded-box" />
-  </div>
-  <div className="carousel-item">
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg"
-      className="rounded-box" />
-  </div>
-  <div className="carousel-item">
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg"
-      className="rounded-box" />
-  </div>
-  <div className="carousel-item">
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg"
-      className="rounded-box" />
-  </div>
-  <div className="carousel-item">
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg"
-      className="rounded-box" />
-  </div>
-  <div className="carousel-item">
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg"
-      className="rounded-box" />
-  </div>
-  <div className="carousel-item">
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg"
-      className="rounded-box" />
-  </div>
-</div> */}
     </div>
   )
 }

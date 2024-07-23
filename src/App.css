@@ -4,6 +4,11 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'Roboto', "sans-serif";
 }
 
 
@@ -19,6 +24,14 @@
 
 .social-icons{
   filter: drop-shadow(1px 3px 8px #71b1e2);
+}
+
+.heroinImage{
+  background-repeat: repeat-x;
+}
+
+.menuItem{
+  filter: drop-shadow(2px 2px 4px #efc273);
 }
 
 
@@ -41,9 +54,9 @@
       top: 0;
       right: 0;
       z-index: 200;
-      background: rgb(0,21,30);
-      background: linear-gradient(180deg, rgb(1, 77, 110) 0%, rgb(0, 23, 33) 100%);
-      color: white;
+      background: #12141e;
+      background: linear-gradient(180deg, #12141e 0%, #12141e 100%);
+      color: #AD974F;
       flex-direction: column;
       line-height: 30px;
       justify-content: center;
@@ -67,31 +80,103 @@
 
   .navbar {
     position: fixed;
-    background-color: #1004568c;
+    background-color: #12141e;
     transition: background-color 0.3s ease;
     z-index: 100;
-  }
+    color: #c3ab5c;
+   }
 
-  /* Home */ 
-
-  .heroinImage{
-    /* filter: brightness(80%); */
-  }
-
-  .home-headings{
-    /* filter: drop-shadow(); */
-  }
+  
 
 
 /* Services Page */
 
 .leftcard{
-  /* background: rgb(34,193,195);
-background: linear-gradient(27deg, rgba(34,193,195,1) 0%, rgba(45,253,167,1) 100%); */
   background-color: #e1e2e5;
 }
 
 .gradientColor{
-  background: #455C73
- 
+      background: #1004568c;
+      background: linear-gradient(360deg, #022d528c 0%, #030b5e 100%);
+}
+
+
+/* Fashion Section */
+
+.banner{
+  border-radius: 10px 20rem;
+  margin: auto;
+  margin-top: 3rem;
+  height: auto;
+  width: 50vw;
+  background-color:#12141e;
+}
+
+
+
+/* Mdoeling */
+
+.bannerMod{
+  border-radius: 10px 20rem;
+  margin: auto;
+  margin-top: 2rem;
+  height: auto;
+  width: 40vw;
+  background-color:#12141e;
+}
+
+/* Pageant */
+
+.bannerPag{
+  border-radius: 10px 20rem;
+  margin: auto;
+  margin-top: 1rem;
+  height: auto;
+  width: 40vw;
+  background-color:#12141e;
+}
+
+
+
+/* App.css */
+
+.navbar .menu ul li.relative:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+.group:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.group:hover .dropdown-menu {
+  opacity: 1;
+  margin-top: 0;
+}
+
+/* Media query to handle mobile styles */
+@media (max-width: 768px) {
+  .dropdown-menu {
+      display: block;
+      opacity: 1;
+  }
+
+  .blue{
+    background-color: #030b5e;
+  }
+
+  .banner{
+    width: 100;
+    height: auto;
+    border: #12141e;
+    border-radius: 10px 10rem;
+  }
 }

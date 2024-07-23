@@ -1,25 +1,39 @@
-import React, { useRef, useState, useEffect } from 'react'
-import '../../App.css'
-import Logo from '../../assets/images/logo-white.png'
-import Whatsappicon from '../../assets/images/WhatsApp_icon.png'
+
+
+import React, { useRef, useState, useEffect } from 'react';
+import '../../App.css';
+import Logo from '../../assets/images/logo-black.png';
+import LogoWhite from '../../assets/images/logo-white.png'
+import Whatsappicon from '../../assets/images/WhatsApp_icon.png';
+import Hamburger from '../../assets/images/hamburger-menu.jpg';
+import backArrow from '../../assets/images/back iimage.png'
+import dropArrow from '../../assets/images/drop arrow.png';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-
     const [isTransparent, setTransparent] = useState(true);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const menuRef = useRef(null);
 
     const toggleMenu = () => {
+        // setIsMobileMenuOpen(!isMobileMenuOpen);
+        console.log(isMobileMenuOpen)
         menuRef.current.classList.toggle('show__menu');
-    }
+    };
 
 
+
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollPos = window.scrollY;
             const isScrolled = currentScrollPos > 0;
-
             setTransparent(!isScrolled);
         };
 
@@ -31,111 +45,72 @@ const Navbar = () => {
     }, []);
 
     return (
-        <header className={`navbar ${isTransparent ? 'navbar-transparent' : ''} nav-shadow fixed top-0 w-full h-auto leading-[80px] text-white flex items-center mb-8 z-40`}>
-
-            <div className="container mx-4 flex items-center justify-between">
-
-            <div className=' w-[10%] items-center max-md:ml-0 '>
-                    <img src={Logo} alt="" />
+        <header className={`navbar  ${isTransparent ? 'navbar-transparent ' : ''} nav-shadow fixed top-0 w-full h-[fit] leading-[80px] flex items-center justify-center z-40 px-4  `}>
+            <div className="container w-full max:w-[1200px] items-center justify-between max-md:flex ">
+                <div className={`${isTransparent ? "w-[15vw]" : "w-[12vw]"} max-md:w-[40vw] items-center m-auto  max-md:mt-0 max-md:ml-24 transition `}>
+                    <img src={isTransparent ? Logo : LogoWhite} alt="Logo" />
                 </div>
 
-                <div className='menu mr-16 mb-4' ref={menuRef} onClick={toggleMenu}>
-                    <ul className='flex items-center justify-between gap-10'>
-                        <button className='max-md:block'><i className="ri-menu-2-line"></i></button>
+                <div className={`menu  ${isMobileMenuOpen ? 'show__menu' : 'menu'}`} ref={menuRef}>
+                    <ul className='flex items-center justify-around w-[50%] m-auto gap-20 font-[600]' >
+                        <button className='max-md:block hidden ml-[-5rem]' onClick={toggleMenu}><img src={backArrow} className='invert' alt="" width={20} /></button>
+                        <li>
+                            <Link to="/" className='focus:text-secondaryHeading'>
+                                <button className='menuItem hover:underline decoration-solid ' style={{ fontFamily: "Montserrat" }}>Home</button>
+                            </Link>
+                        </li>
+                        <li className='relative group'>
+                            <Link to="#" className='focus:text-secondaryHeading'>
+                                <button className=' menuItem hover:underline decoration-solid flex items-center gap-2' onClick={toggleDropdown} style={{ fontFamily: "Montserrat" }}>
+                                    Services <img src={dropArrow} className={`${isTransparent ? "" : "invert"} `} alt="Dropdown Arrow" width={10} />
+                                </button>
+                            </Link>
+                            <ul className={`dropdown-menu absolute right-[-58px] top-10 w-40 ${isTransparent ? "bg-white" : "bg-blackNav"} shadow-lg rounded-lg transition-all duration-300 text-center ${isDropdownOpen ? 'opacity-50 ' : 'opacity-0'} z-60 `}>
+                                <Link to="/fashion"><li className=" dropdown-item  max-md:bg-blue text-[15px] hover:bg-gray-900 hover:text-gold hover:cursor-pointer" style={{ fontFamily: "Montserrat" }}>Fashion</li></Link>
+                                <Link to="/modeling"><li className=" dropdown-item max-md:bg-blue text-[15px] hover:bg-gray-900 hover:text-gold hover:cursor-pointer" style={{ fontFamily: "Montserrat" }}>Modeling</li></Link>
+                                <Link to="/pageant"><li className=" dropdown-item  max-md:bg-blue text-[15px] hover:bg-gray-900 hover:text-gold hover:cursor-pointer" style={{ fontFamily: "Montserrat" }}>Pageant</li></Link>
+                            </ul>
+                        </li>
+                        <li>
+                            <Link to="/about" className='focus:text-secondaryHeading'>
+                                <button className='menuItem hover:underline decoration-solid' style={{ fontFamily: "Montserrat" }}>About</button>
+                            </Link>
+                        </li>
+                        
 
-                        <li> <a className='   focus:text-secondaryHeading  ' href="#about"> <button className='  hover:underline decoration-solid'> About Us</button> </a> </li>
-                        <li> <a className='   focus:text-secondaryHeading  ' href="#services"><button className=' hover:underline decoration-solid'>  Services </button> </a> </li>
-                        <li> <a className='   focus:text-secondaryHeading  ' href="#review"> <button className='  hover:underline decoration-solid'> Gallery </button> </a> </li>
+                        <li className='relative group'>
+                            <Link to="#" className='focus:text-secondaryHeading'>
+                                <button className='menuItem hover:underline decoration-solid flex items-center gap-2' onClick={toggleDropdown} style={{ fontFamily: "Montserrat" }}>
+                                    Gallery <img src={dropArrow} className={`${isTransparent ? "" : "invert"} `} alt="Dropdown Arrow" width={10} />
+                                </button>
+                            </Link>
+                            <ul className={`dropdown-menu absolute right-[-58px] top-10 w-40 ${isTransparent ? "bg-white" : "bg-blackNav"} shadow-lg rounded-lg transition-all duration-300 text-center ${isDropdownOpen ? 'opacity-50 ' : 'opacity-0'} z-60 `}>
+                                <Link to="/fashiongallery"><li className=" dropdown-item  max-md:bg-blue text-[15px] hover:bg-gray-900 hover:text-gold hover:cursor-pointer" style={{ fontFamily: "Montserrat" }}>Fashion</li></Link>
+                                <Link to="/modelinggallery"><li className=" dropdown-item max-md:bg-blue text-[15px] hover:bg-gray-900 hover:text-gold hover:cursor-pointer" style={{ fontFamily: "Montserrat" }}>Modeling</li></Link>
+                                <Link to="/pageantgallery"><li className=" dropdown-item  max-md:bg-blue text-[15px] hover:bg-gray-900 hover:text-gold hover:cursor-pointer" style={{ fontFamily: "Montserrat" }}>Pageant</li></Link>
+                            </ul>
+                        </li>
 
+                        <li>
+                            <Link to="/contact" className='focus:text-secondaryHeading'>
+                                <button className='menuItem hover:underline decoration-solid' style={{ fontFamily: "Montserrat" }}>Contact</button>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
-                
 
-                <div className='mr-16 grid grid-rows-1 items-center'>
-                    
-                        <img src={Whatsappicon}  alt="" width={50}/>
-                        {/* <p>contact here</p> */}
-                    
+                <div className='flex gap-5 items-center hover:cursor-pointer '>
+                    <span className='hidden max-md:block max-md:'>
+                        <img src={Hamburger} onClick={toggleMenu} alt="Menu" width={30} />
+                    </span>
                 </div>
-
             </div>
 
-
+            <div className='whatsapp w-[3vw] fixed bottom-20 right-10 hover:scale-105 hover:cursor-pointer max-md:w-[12vw]'>
+                <img src={Whatsappicon} className='w-full' alt="WhatsApp" />
+            </div>
         </header>
+    );
+};
 
-        // <header id='header' className={`nav-shadow  fixed top-0 w-full h-auto leading-[80px] flex items-center mb-8  bg-opacity-100 z-40 `}>
-        //             <div className="container">
-        //                 <div className="flex items-center justify-between">
-        //                     {/* {++++++++++++logo ++++++} */}
-
-        //                     <div className='flex items-center gap-[10px] text-align-center'>
-        //                         <span className='w-[115px] max-sm:w-[80px] h-[75px]  text-[18px] font-[500] rounded-full flex items-center justify-center '>
-        //                             {/* <img src={themeMode ? Logolight : LogoName} alt="" /> */}
-        //                         </span>
-
-        //                     </div>
-
-        //                     {/* {++++++++++++logo end ++++++} */}
-        //                     {/* {++++++++++++Menu start ++++++} */}
-
-        //                     <div className='menu' ref={menuRef} onClick={toggleMenu}>
-        //                         <ul className='flex items-center justify-between gap-10'>
-        //                             <button className='max-md:block'><i className="close max-md:block ri-close-line"></i></button>
-        //                             <li> <a className=' font-[500]   focus:text-secondaryHeading  ' href="#home" > <button className='focus:font-[600] hover:underline decoration-solid'>Home </button> </a>  </li>
-        //                             <li> <a className=' font-[500]   focus:text-secondaryHeading  ' href="#services"><button className='focus:font-[600] hover:underline decoration-solid'>  Services </button> </a> </li>
-        //                             <li> <a className=' font-[500]   focus:text-secondaryHeading  ' href="#about"> <button className='focus:font-[600] hover:underline decoration-solid'> About </button> </a> </li>
-        //                             <li> <a className=' font-[500]   focus:text-secondaryHeading  ' href="#portfolio"> <button className='focus:font-[600] hover:underline decoration-solid'> Projects </button> </a> </li>
-        //                             <li> <a className=' font-[500]   focus:text-secondaryHeading  ' href="#review"> <button className='focus:font-[600] hover:underline decoration-solid'> Reviews </button> </a> </li>
-        //                             <li> <a className=' font-[500]   focus:text-secondaryHeading  ' href="#contact"> <button className='focus:font-[600] hover:underline decoration-solid'> Contact Us </button> </a> </li>
-        //                             {/* <li>
-        //                                 <div className='flex max-md:flex-col gap-3'> */}
-        //                                     {/* <Link to='/ordernow'> <button className='button flex items-center gap-2 text-white bg-buttonColor font-[400] p-2 rounded-[8px] max-h-[45px]  max-md:w-fit hover:bg-smallTextColor hover:text-white hover: font-[500] ease-in duration-300'>
-        //                                 <i className="ri-book-2-fill"></i><a href="https://join.skype.com/invite/peT5gO7lOD3E" className='font-[400]'>Book my Order</a>
-        //                             </button>
-        //                             </Link> */}
-
-        //                                 {/* <button className='button flex items-center gap-2 text-white bg-buttonColor font-[400] p-2 rounded-[8px] max-md:hidden max-h-[45px] max-md:w-fit 
-        //                             hover:bg-smallTextColor hover:text-white hover: font-[500] ease-in duration-300'>
-        //                                     <i className="ri-send-plane-fill"></i><a href="https://join.skype.com/invite/peT5gO7lOD3E" className='font-[400]'>Book a Meeting</a>
-        //                                </button>
-        //                                </div>
-        //                             </li> */}
-        //                         </ul>
-        //                     </div>
-        //                     {/* {++++++++++++Menu end ++++++} */}
-
-        //                     {/* {++++++++++++Right button ++++++} */}
-
-        //                     <div className="flex items-center gap-4">
-        //                         <button className='button flex items-center gap-2 text-white bg-buttonColor font-[600] p-2 rounded-[8px] max-h-[45px] max-md:hidden max-md:w-fit 
-        //                             hover:bg-smallTextColor hover:text-white hover: font-[500] ease-in duration-300'>
-        //                             <i className="ri-send-plane-fill"></i><a href="https://join.skype.com/invite/peT5gO7lOD3E" className='font-[400]'>Book a Meeting</a>
-        //                         </button>
-
-        //                         {/* <Link to='/ordernow' >
-        //                             <button className='button flex items-center gap-2 text-white bg-buttonColor font-[600] p-2 rounded-[8px] max-h-[45px] max-md:hidden max-md:w-fit 
-        //                             hover:bg-smallTextColor hover:text-white hover: font-[500] ease-in duration-300'>
-        //                                 <i className="ri-book-2-fill"></i><a href="https://join.skype.com/invite/peT5gO7lOD3E" className='font-[400]'>Book my Order</a>
-        //                             </button>
-        //                         </Link> */}
-
-        //                         <span onClick={toggleMenu} className={` text-2xl text-smallTextColor md:hidden cursor-pointer`}>
-        //                         <i className="ri-menu-line"></i>
-        //                             </span>
-
-
-        //                     </div>
-
-        //                     {/* {++++++++++++Right button end ++++++} */}
-
-
-        //                 </div>
-        //             </div>
-
-
-
-        //         </header>
-    )
-}
-
-export default Navbar
+export default Navbar;

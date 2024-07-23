@@ -1,93 +1,122 @@
 import React from 'react'
-import AboutImg from '../../assets/images/aboutimage.png'
-import SecondImg from '../../assets/images/aboutus2.png'
+import MyselfImg from '../../assets/images/secImgRbg.png'
 import fbIcon from '../../assets/images/facebook.png'
 import igIcon from '../../assets/images/instagram.png'
+import ytIcon from '../../assets/images/youtube.png'
+import inIcon from '../../assets/images/linkedin-removebg-preview.png'
+
+import { Link } from 'react-router-dom'
 
 const AboutUs = () => {
-    return (
-        <div id="about" className='about'>
+  return (
+    <div id="about" className='about px-16 max-md:px-8 pt-32'>
+      <br />
+      <div className="container my-24 relative w-[33%] m-auto">
 
-            <div className="container m-16 relative">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="first-card items-center bg-blackNav text-white text-center p-4 max-md:w-full my-3">
 
-                <div className="w-full basis-1/2 flex max-md:block max-md:text-center ">
-                    {/* <h5 data-aos="fade-right" data-aos-durantion="2000" className='text-headingColor font-[600]'>Hello World!</h5> */}
-
-                    <div
-                        data-aos="fade-up"
-                        data-aos-duration="1000"
-                        className={`text-headingColor font-[800] text-[1.8rem] sm:text-[40px] my-3  `}
-                    >
-                        <p className='font-[400] text-[1.4rem] text-textColor'> Featured case study </p>
-                        <h1 className='text-[2.8rem] sub-heading text-headingPrimary'> Who we are?</h1>
-                        <div className='w-[30%] h-[5px] bg-primaryColor max-md:m-auto'></div> <br />
-                        <p className='font-[400] text-[1.1rem] w-[40vw] max-md:w-full '>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe deleniti, eos eius voluptatibus perspiciatis voluptates magni! Suscipit mollitia cumque id quasi odio iusto minima itaque debitis et sint doloremque blanditiis explicabo, esse fuga fugiat ipsa reprehenderit fugit sed, quis molestiae provident? In, fuga dolor! Laboriosam!
-                        </p>
+          <div className='z-40 '>
+            <h1 className='text-[1.6rem] max-md:text-[1.3rem] font-[600]' style={{ fontFamily: "Montserrat" }}>About Me <div className='w-[15%] h-[3px] bg-gold m-auto '></div> </h1>
 
 
-                        <div
-                            className='max-md:m-auto max-md:w-[35%]'
-                        >
-                            <a href="#contact">
-                                <button className='button bg-primaryColor text-xl font-[300] mt-4 py-2 px-3 text-white flex items-center gap-2 
-              hover:bg-secondaryColor ease-in duration-300 rounded-[8px] '>
-                                    Contact Us
-                                </button>
-                            </a>
-
-                        </div>
-
-
-                        <div className="flex items-center gap-9 mt-8 mb-12">
-                            <span>
-                                <p className='flex text-[15px] font-[600]'> Follow Us On: </p>
-                            </span>
-                            <span
-                            //   data-aos='fade-left'
-                            //   data-aos-duration='1000'
-                            >
-                                <button className='flex items-center gap-1  font-[600] rounded max-h-[30px]' >
-                                    <a href="https://www.facebook.com/profile.php?id=100088242094302">
-                                        <img className='social-icons' src={fbIcon} alt="facebook" width={28} />
-                                    </a>
-                                </button>
-                            </span>
-
-
-
-                            <span
-                            //    data-aos='fade-left'
-                            //    data-aos-duration='1000'
-                            //    data-aos-delay="300"
-                            >
-                                <button className='flex items-center gap-1  font-[600] rounded max-h-[30px] 
-                            ease-in duration-300' >
-                                    <a href="https://www.instagram.com/axzotech?igsh=OWVkMTFiN2gwcnB3"       >
-                                        <img className='social-icons' src={igIcon} alt="instagram" width={28} />
-                                    </a>
-                                </button>
-                            </span>
-
-                        </div>
-                    </div>
-
-
-                    <div className="basis-1/2 mt-[-4rem] max-md:mt-4 ">
-                        <figure className="flex items-center justify-center max-md:w-[50%] max-md:m-auto " style={{ width: "50vw" }}>
-                            {/* <img className='hero-img absolute left-100 top-10' src={windowImg} alt="logo img" style={{width:"20%"}} /> */}
-                            <img className={`hero-img drop-shadow-2xl mr-[-6rem] w-[50%] max-md:w-[100%] `} src={AboutImg} alt="logo img" />
-                            <img className={`hero-img drop-shadow-2xl lg:ml-[-6rem] w-[50%] max-md:w-[100%]`} src={SecondImg} alt="logo img" />
-                            {/* <img className='hero-img absolute left-140' src={homeImg} alt="logo img" style={{width:"30%"}} /> */}
-                            {/* <img src="" alt="" /> */}
-                        </figure>
-                    </div>
-                </div>
-
+            <div className="img w-[80%] m-auto my-4">       {/* you can change its width and height by w in classname */}
+              <img src={MyselfImg} alt="" />                {/* Image of yourself for about section card */}
             </div>
 
+            <div className="textinCard   font-[600] my-3 " >
+              <h1 className='text-gold text-2xl my-2' style={{ fontFamily: "Playfair display" }}>Zakia Quaderi </h1>
+
+              <p className='font-[400] text-[1rem]  max-md:w-full max-md:text-[0.8rem] mb-4' style={{ fontFamily: 'Montserrat' }}>
+                Fashion Consultant | Model | Pageant Coach
+              </p>
+            </div>
+
+            <div className='m-auto w-fit'>
+              <Link to={"/contact"}>
+                <button className='button bg-gold text-[0.9rem] font-[500] mt-4 p-3 text-white flex items-center  
+              hover:bg-secondaryColor ease-in duration-300 rounded-[8px]' style={{ fontFamily: 'Montserrat' }}>
+                  Contact
+                </button>
+              </Link>
+
+            </div>
+          </div>
         </div>
-    )
+
+        <div className="biography mt-8">
+          <h1 className='text-center text-[1.5rem] font-[600]' style={{ fontFamily: "Playfair display" }}>
+            My Biography
+          </h1>
+          <div className='w-[15%] h-[3px] bg-gold m-auto mb-4' ></div>
+
+          <p style={{ fontFamily: "Montserrat" }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id voluptatem est tempore vero reprehenderit perferendis blanditiis culpa? Temporibus, explicabo consequuntur! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque odio quos non adipisci voluptatem ut, eos iste earum incidunt aliquam?</p>
+        </div>
+
+        <div className="biography mt-8">
+          <h1 className='text-center text-[1.5rem] font-[600]' style={{ fontFamily: "Playfair display" }}>
+            My Portfolio
+          </h1>
+          <div className='w-[15%] h-[3px] bg-gold m-auto mb-4'></div>
+
+          <p style={{ fontFamily: "Montserrat" }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id voluptatem est tempore vero reprehenderit perferendis blanditiis culpa? Temporibus, explicabo consequuntur! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque odio quos non adipisci voluptatem ut, eos iste earum incidunt aliquam?</p>
+        </div>
+
+
+        <div className="flex items-center gap-9 mt-16 mb-12">
+          <span>
+            <p className='flex text-[15px] font-[600]'> Follow Me On: </p>
+          </span>
+          <span>
+            <button className='flex items-center gap-1  font-[600] rounded max-h-[30px]' >
+              <Link to="your link to facebook">                   {/* your link to facebook */}
+                <img src={fbIcon} alt="facebook" width={28} />
+              </Link>
+            </button>
+          </span>
+
+          <span>
+            <button className='flex items-center gap-1  font-[600] rounded max-h-[30px] 
+                            ease-in duration-300' >
+              <Link to="your link to instagram">                {/* your link to instagram */}
+                <img src={igIcon} alt="instagram" width={28} />
+              </Link>
+            </button>
+          </span>
+
+          <span>
+            <button className='flex items-center gap-1  font-[600] rounded max-h-[30px]' >
+              <Link to="your link to youtube">                  {/* your link to youtube */}
+                <img src={ytIcon} alt="youtube" width={32} />
+              </Link>
+            </button>
+          </span>
+
+          <span>
+            <button className='flex items-center gap-1  font-[600] rounded max-h-[30px]' >
+              <Link to="your link to linkedin">                 {/* your link to linkedin */}
+                <img src={inIcon} alt="linkedin" width={19} />
+              </Link>
+            </button>
+          </span>
+
+        </div>
+
+        <div className='m-auto w-fit'>
+          <Link to="your link to your resume (if any)">         {/* your link to resume */}
+            <button className='button  bg-blackNav text-[0.9rem] font-[500] mt-4 p-3 text-white flex items-center  
+              hover:bg-secondaryColor ease-in duration-300 rounded-[8px]' style={{ fontFamily: 'Montserrat' }}>
+              Resume
+            </button>
+          </Link>
+
+        </div>
+      </div>
+
+    </div>
+  )
 }
 
 export default AboutUs
